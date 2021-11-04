@@ -1,0 +1,22 @@
+If we want to represent a group of individual objects as a single entity then we should go for collection(I) .
+
+Collection interface defines the most common methods which are applicable for any collection object.
+
+Methods present in Collection Interface :
+If we want to add/remove/clear objects or collection
+	1. boolean add(Object o) ;                           //Add an object in collection
+	2. boolean addAll(Collection c) ;                // Add a group of  individual
+	3. boolean remove(Object o) ;                   // remove an object 
+	4. boolean removeAll(Collection c);          // remove a collection 
+	5. void clear() ;                                              // to remove all objects, size will be null
+	6. boolean retainAll(Collection c) ;           // except this group all remaining objects will be removed.
+
+If we want to check whether a particular object is present or not.
+	1. boolean contains(Object o) ;         // checks if an object is present in a collection
+	2. boolean containsAll(Collection c) ;  // checks if group of individual is present or not
+	3. boolean isEmpty() ;                       // to check empty id the collection is empty or not.     
+	4. int size() ;
+	5. toArray() ;                        // converts the collection into an Array,  return type is Object[] array
+	6. iterator() ;                     // convert into an Iterable object,  return type is Iterator class Object 
+
+NOTE: There is no concrete class which implements collection interface directly, only child interfaces have implementation classes.
