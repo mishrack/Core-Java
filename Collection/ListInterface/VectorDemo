@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class VectorDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) 
+	{
+		//Vector  v =  new Vector() ;
+		//Vector v = new Vector(24) ;  // every time 24 will be the capacity till it exceeds
+		Vector  v =  new Vector(10 , 5) ; // increments by 5 on it gets full  
+		System.out.println(v.capacity());  // 10
+		
+		for(int i = 1; i<=10 ; i++)
+		{
+			v.addElement(i);
+		}
+		
+		System.out.println(v.capacity());  // 10
+		System.out.println(v);    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		
+		v.removeAllElements();
+
+		v.addElement("chanchal");
+		System.out.println(v.capacity());  //15
+		System.out.println(v);
+		
+		// add() , addAll() 
+		v.add("Mishra");
+		System.out.println(v);	
+		List al = new ArrayList( ) ;
+		al.add("My home town is ") ;
+		al.add("Siddharth Nagar") ;
+		
+		v.addAll(al) ;
+		System.out.println(v);
+		//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, chanchal, Mishra, My home town is , Siddharth Nagar]
+		
+		
+
+	}
+
+}
