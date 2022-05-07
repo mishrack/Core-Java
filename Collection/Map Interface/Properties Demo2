@@ -1,0 +1,33 @@
+import java.io.FileInputStream;
+import java.sql.DriverManager;
+import java.util.Properties;
+
+// This example shows how to use properties file in creating DB connection and maintain user detailsin property file
+
+public class PropertiesDemo2 {
+
+	
+	@SuppressWarnings("unused")
+	public static void main(String[] args) throws Exception
+	{
+	Properties p = new Properties();
+	FileInputStream fis = new FileInputStream("db.properties");
+	
+	p.load(fis);
+	
+	String url = p.getProperty("URL") ;
+	String user = p.getProperty("user");
+	String password = p.getProperty("password");
+	
+	java.sql.Connection con = DriverManager.getConnection(url, user, password);
+	
+	
+	}
+
+}
+
+
+// Content of db.properties
+URL = "google.com"
+user = "production"
+password = "Tiger123"
