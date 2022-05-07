@@ -1,0 +1,44 @@
+
+   
+Before Learning collection we must know why we are learning it ?
+
+SO WHY DO WE NEED TO LEARN ABOUT COLLECTION ? 
+
+An array is an indexed collection of fixed number of homogenous data elements.
+The main advantage of arrays is we can represent multiple values by   using single variable, so that read ability of the code will be improved.
+
+Limitation of Arrays:
+1.Arrays are fixed in size i.e. once we create an array there is no chance of increasing  or decreasing the size based on our requirements. Due to this , to use arrays concept it is mandatory we should know the size in advance which may not be possible always.
+
+2.Array can hold only homogenous data type elements, example:
+Student[] s =new Student[1000];
+S[0] = new Student(); valid 
+S[1]= new Customer(); invalid
+
+We can solve this problem using Object type arrays.
+Object[] object = new Object[1000];
+object[0] = new Student() ; valid 
+object[1] = new Customer(); valid
+
+3.Arrays concept is not implemented based on some standard data structures and hence ready made method support is not available for every requirement we have to write the code explicitly which increases complexity of programming 
+
+To overcome above problems of arrays we should go for Collections concept.
+
+1.Collections are growable in nature that is based on our requirements we can increase and decrease the size 
+2.Collections can hold both homogenous and Heterogenous elements.
+3.Every collection class is implemented based on some standard data structures hence for every requirement ready made Method support is available. Being a programmer we are responsible to use those methods and we are not responsible to implement.
+
+DIFFERENCE BETWEEN ARRAY AND COLLECTION :
+
+                Arrays	                                                            Collections
+Arrays are fixed in Size	                                    Collections are growable in nature
+W.r.t to memory arrays are not recommended to use.	            Collections are recommended to use  w.r.t to memory.
+Performance wise Arrays are recommended to use.               	Performance  wise Collections are not recommended to use.
+Arrays can  hold only Homogenous elements.                    	Collections can hold both homogenous and Heterogenous elements.
+Arrays can hold both Primitives and Objects .                  	Collections can hold only Objects, but  not primitives.
+No underlying DS for arrays and hence ready made                Underlying DS for every collection class  and  hence ready made support is   present.
+support is  not present 
+For every requirement we have to write the code explicitly    	Being a programmer we are responsible to use those methods and we are not responsible to implement.
+which increases complexity of the programming.
+
+
