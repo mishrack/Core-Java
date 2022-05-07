@@ -1,0 +1,27 @@
+// Underlying DS is LinkedList + HashTable
+// Duplicates are not allowed and insertion order is preserved
+// Used to develop cache based application
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) 
+	{
+	
+		LinkedHashSet h = new LinkedHashSet() ;
+		h.add("A") ;
+		h.add("C");
+		h.add("D") ;
+		h.add("Z") ;
+		h.add(null) ;
+		h.add(10) ;
+		System.out.println(h.add("A"));   // false, duplicates are not allowed in Set Interface
+		System.out.println(h);          // [A, C, D, Z, null, 10], insertion order will be same 
+
+	}
+
+}
+
+
