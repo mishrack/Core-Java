@@ -1,0 +1,47 @@
+import java.util.Hashtable;
+
+// Elements are sorted from Top to Bottom
+// then if we have 2 or more elements in a bucket then it will be sorted from Right ot Left
+
+public class HashtableDemo
+{
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args)
+	{
+		Hashtable h = new Hashtable() ;
+		h.put(new Temp2(5) ,"A");
+		h.put(new Temp2(2) ,"B");
+		h.put(new Temp2(6) ,"C");
+		h.put(new Temp2(15) ,"D");
+		h.put(new Temp2(23) ,"E");
+		h.put(new Temp2(16) ,"F");
+		h.put(new Temp2(2) ,"F");
+
+		System.out.println(h);  // {6=C, 16=F, 5=A, 15=D, 2=F, 2=B, 23=E}
+		
+		//try to insert null in Hashtable
+		//h.put(new Temp2(19), null) ;
+		// will get NullPointerException
+	}
+
+}
+
+class Temp2 
+{
+	int i;
+	Temp2(int i)
+	{
+		this.i = i ;
+	}
+	
+	public int hashCode()
+	{
+		return i ;
+	}
+	
+	public String toString()
+	{
+		return i+"" ;
+	}
+}
