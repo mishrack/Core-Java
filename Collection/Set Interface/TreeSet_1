@@ -1,0 +1,32 @@
+//	1. The underlying DS is Balanced Tree.
+//	2. Duplicate objects are not allowed.
+//	3. Insertion order not preserved.
+//	4. Heterogeneous objects are not allowed
+//	5. All elements are inserted based on some sorting order.
+
+import java.util.TreeSet;
+
+public class TreeSetDemo {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args)
+	{
+		TreeSet t = new TreeSet() ;
+		t.add("A");
+		t.add("a") ;
+		t.add("B") ;
+		t.add("Z") ;
+		t.add("L");
+		// t.add(new Integer(10)) ; will give ClassCastException, not allowed due to heterogenous element
+		//t.add(null) ;  NUllPointerException if we try to add null in TreeSet
+		
+		System.out.println(t);   // [A, B, L, Z, a]
+
+	}
+
+}
+
+
+
+
+
