@@ -1,0 +1,43 @@
+// cursor number 3: ListIterator(read, add, remove, set , move back and forth)
+//The most powerful cursor is ListIterator but it's limitation is it is applicable only for List objects.
+
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class ListIteratorDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) 
+	{
+		LinkedList l =  new LinkedList() ;
+		l.add("Chanchal") ;
+		l.add("Mishra")  ;
+		l.add("Bansi") ;
+		l.add("Kuamr") ;
+		System.out.println(l);  // [Chanchal, Mishra, Bansi]
+		ListIterator ltr =  l.listIterator() ;
+		// Here the object created is implementation class object , not the interface object
+		// For example below ListItr is anonymous inner class 
+		System.out.println(ltr.getClass().getName()); // java.util.LinkedList$ListItr
+		while(ltr.hasNext())
+		{
+			String s = (String)ltr.next() ;
+			if(s.equals("Bansi"))
+			{
+				ltr.remove();
+			}
+			else if(s.equals("Chanchal"))
+			{
+				ltr.add("Kr");
+			}
+			
+			else if(s.equals("Kuamr"))
+			{
+				ltr.set("Siddharth");
+			}
+			
+		}
+		System.out.println(l);
+	}
+
+}
