@@ -1,0 +1,37 @@
+// Underlying DS is  HashTable
+// Duplicates are not allowed but insertion order is not preserved
+
+import java.util.HashSet;
+
+public class HashSetDemo {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args)
+	{
+		HashSet h = new HashSet() ;
+		h.add("A") ;
+		h.add("C");
+		h.add("D") ;
+		h.add("Z") ;
+		h.add(null) ;
+		h.add(10) ;    // heterogenous, we can add any object type
+		System.out.println(h.add("A"));   // false, duplicates are not allowed
+		System.out.println(h);  // [null, A, C, D, Z, 10] not same as insertion order
+
+		h.remove("Z") ;
+		System.out.println(h);
+		System.out.println(h.isEmpty());
+		
+		Object[] obj = h.toArray();   // converting hashset into an Array of object 
+		for(Object i : obj)
+		{
+			System.out.print(i + " ");
+		}
+		
+	}
+
+}
+
+
+
+
