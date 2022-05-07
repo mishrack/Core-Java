@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.Properties;
+
+// this example demonstrate simple use of property file 
+
+public class PropertiesDemo {
+
+	public static void main(String[] args) throws Exception
+	{
+		Properties p = new Properties() ;
+		FileInputStream  fis = new FileInputStream("abc.properties") ;
+		p.load(fis);
+		
+		System.out.println(p); 
+		//{user=chanchal, Password=Rama}
+		
+		// to get any value from property file , pass it's key
+		String s = p.getProperty("Password");
+		System.out.println(s); // Rama
+		
+		// to set new value/create new entry in property file
+		p.setProperty("Company", "XYZ");
+		
+		// now store the changes value in property file also
+		FileOutputStream  fos = new FileOutputStream("abc.properties");
+		p.store(fos, "Uploaded by chanchal");
+		
+	}
+
+}
+
+
+// Content of abc.properties
+#Uploaded by chanchal
+#Mon Sep 20 23:56:14 IST 2021
+user=chanchal
+Password=Rama
+Company=XYZ
