@@ -1,0 +1,32 @@
+//	1. The underlying DS is Balanced Tree.
+//	2. Duplicate objects are not allowed.
+//	3. Insertion order not preserved.
+//	4. Heterogeneous object not allowed
+//	5. All elements are inserted based on some sorting order.
+
+
+import java.util.TreeSet;
+
+public class TreeSetDemo1 {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args)
+	{
+		TreeSet t = new TreeSet() ;
+		t.add(new StringBuffer("A"));
+		t.add(new StringBuffer("Z"));
+		t.add(new StringBuffer("L"));
+		t.add(new StringBuffer("B"));
+		//t.add("chanchal"); // this will give classCastException 
+		//StringBuffer does not implements Comparable interface
+		// where as String class and Wrapper class implements Comparable interface
+		System.out.println(t);   // [A, B, L, Z]
+
+	}
+
+}
+
+
+
+
+
