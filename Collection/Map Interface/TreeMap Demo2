@@ -1,0 +1,35 @@
+import java.util.Comparator;
+import java.util.TreeMap;
+
+//TreeMap implementation using customized sorting
+
+public class TreeMapDemo2 {
+
+	
+		@SuppressWarnings({ "rawtypes", "unchecked" })
+		public static void main(String[] args)
+		{
+			TreeMap m  = new TreeMap(new MyComparator10());
+			// Key Objects will be sorted using Comparator  
+			
+			m.put(101, "Rama") ;
+			m.put(102, "Sam") ;
+			m.put(103, "Yama") ;
+			m.put(104, 1000) ;
+			
+			System.out.println(m);  //{104=1000, 103=Yama, 102=Sam, 101=Rama}
+
+		}
+}
+
+@SuppressWarnings("rawtypes")
+class MyComparator10 implements Comparator 
+{
+	public int compare(Object obj1, Object obj2)
+	{
+		String s1 = obj1.toString() ;
+		String s2 = obj2.toString();
+		
+		return s2.compareTo(s1);
+	}
+}
