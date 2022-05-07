@@ -1,0 +1,48 @@
+import java.util.LinkedList;
+
+public class LinkedListDemo {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args)
+	{
+	
+		LinkedList l  = new LinkedList() ;
+		l.add("chanchal") ;
+		l.add( 25) ;
+		l.add(null) ;
+		l.add("Bansi") ;
+		
+		// get() and set()
+		System.out.println(l.get(3) );  // Bansi
+		l.set(0, "Software") ;
+		System.out.println(l); // [Software, 25, null, Bansi]
+		
+		l.add(0 , "Mishra") ;
+		System.out.println(l); // [Mishra, Software, 25, null, Bansi]
+		
+		// addFirst()  , addLast() 
+		l.addFirst("Employed");
+		l.addLast("XYZ");
+		System.out.println(l);  // [Employed, Mishra, Software, 25, null, Bansi, XYZ]
+		
+		// peek() , peekFirst() , peekLast()
+		System.out.println(l.peek());    // returns first element 
+		System.out.println(l.peekFirst()); // returns first element 
+		System.out.println(l.peekLast());  // returns last element 
+		
+		// poll, pollFirst() , pollLast()
+		System.out.println(l.poll());  // removes first element and returns it
+		System.out.println(l.pollFirst());  // removes first element and returns it 
+		System.out.println(l.pollLast());   // removes last element and returns it
+		
+		System.out.println(l);
+		
+		l.removeLast();
+		l.addFirst("CC");
+		System.out.println(l); // [CC, Mishra, Software, 25, null]
+		
+		
+
+	}
+
+}
