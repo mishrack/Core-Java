@@ -1,0 +1,29 @@
+import java.util.TreeMap;
+
+// TreeMap implemetation using default natural sorting via comparable constructor.
+
+public class TreeMapDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args)
+	{
+		TreeMap m  = new TreeMap();  // Default natural sorting
+		
+		m.put(101, "Rama") ;
+		m.put(102, "Sam") ;
+		m.put(103, "Yama") ;
+		m.put(104, 1000) ;
+		
+		System.out.println(m); // {101=Rama, 102=Sam, 103=Yama, 104=1000}
+		
+		// Now try to insert Heterogeneous Object in keys
+		// CE error: java.lang.ClassCastException
+		//System.out.println(m.put("CXXX", "Hetero") );  
+		
+		// Now try to insert null value in Key
+		// Will Runtime Exception: java.lang.NullPointerException
+		//System.out.println(m.put(null, "NULL"));
+		
+	}
+
+}
