@@ -1,0 +1,74 @@
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+// HashMap and LinkedHAshMap both have similar methods and constructors
+// except the underlying DS and insertion order preservation is different in both
+
+// Map Interface provides following methods 
+// 1. put(Object obj), 2.putAll(Map m) , 3.get(Object Key) ,4.remove(Object Key) 
+//5. containsKey(Object Key), 6.containsValue(Object Value) ,7. isEmpty() , 8.size(), 9.clear()
+public class LinkedHashMapDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args)
+	{
+		LinkedHashMap m = new LinkedHashMap();
+		m.put("Ram", 1000);
+		m.put("Shyam", 1500);
+		m.put("Sam", 2000);
+		m.put("Yama", 25000);
+		m.put("Kama", 3000);
+		System.out.println(m);  // {Shyam=1500, Yama=25000, Kama=3000, Sam=2000, Ram=1000}
+		System.out.println(m.put("Sam", 5000));  // returns 2000
+		System.out.println(m);  // {Shyam=1500, Yama=25000, Kama=3000, Sam=5000, Ram=1000}
+		
+		System.out.println(m.remove("Yama"));  // will remove Yama key and values from Map object m
+		// Output : [Shyam=1500, Kama=3000, Sam=5000, Ram=1000]
+		
+		System.out.println(m.get("Ram"));  // returns 1000 value at Ram
+		
+		System.out.println(m.containsKey("Yama")); // returns false as Yama is removed earlier
+		
+		System.out.println(m.containsValue(5000)); // returns true
+		
+		System.out.println(m.isEmpty()); // returns false
+		
+		System.out.println(m.size()); // returns 4 as the entry objects are 4
+		
+		Set s = m.keySet();		// Set of Keys present in Map m
+		System.out.println(s);  // returns Keys: [Shyam, Yama, Kama, Sam, Ram]
+		
+		Collection c = m.values();  // grouping values into a collection
+		System.out.println(c);   // return values : [1500, 25000, 3000, 5000, 1000]
+		
+		Set s1 = m.entrySet();   // Create entry Set of Map m 
+		System.out.println(s1);  // retrun set of entries: [Shyam=1500, Yama=25000, Kama=3000, Sam=5000, Ram=1000]
+		
+		// create iterator on Entry set 
+		Iterator itr = s1.iterator() ;
+		while(itr.hasNext()) 
+		{
+			Map.Entry m1 = (Map.Entry)itr.next() ;
+			System.out.println(m1.getKey() +":"+ m1.getValue());
+			//return output
+//			Shyam:1500
+//			Yama:25000
+//			Kama:3000
+//			Sam:5000
+//			Ram:1000
+			
+			if(m1.getKey().equals("Sam"))
+			{
+				m1.setValue(9999);  // set Key -Sam's value as 9999
+			}
+
+		}
+		System.out.println(m);  // return {Shyam=1500, Yama=25000, Kama=3000, Sam=9999, Ram=1000}
+		
+		
+	}
+
+}
