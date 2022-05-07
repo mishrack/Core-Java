@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+
+// Same as HashMap , but it uses == operator to compare duplicate kays while try to insert them in Map.
+// Also the methods and constructor remains the same.
+
+public class IdentityHashMapDemo {
+
+	@SuppressWarnings({"deprecation","unchecked", "rawtypes"})
+	public static void main(String[] args) 
+	{
+		HashMap m = new HashMap() ;
+		Integer i1 = new Integer(10) ;
+		Integer i2 = new Integer(10) ;
+
+		m.put( i1, "Pawan") ;
+		m.put( i2 , "Kalyan") ;
+		System.out.println(m);  // return { 10=Kalyan }
+		// reason is both keys have same value in their container
+		
+		//If we replace HashMap with IdentityHashMap then both keys can be inserted
+		
+		IdentityHashMap m1 = new IdentityHashMap() ;
+		Integer i3 = new Integer(10) ;
+		Integer i4 = new Integer(10) ;
+
+		m1.put( i3, "Pawan") ;
+		m1.put( i4 , "Kalyan") ;
+		System.out.println(m1);
+		// in this case the output will be {10=Pawan, 10=Kalyan}
+
+		
+	}
+
+}
