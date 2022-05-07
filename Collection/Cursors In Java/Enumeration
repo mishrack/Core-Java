@@ -1,0 +1,41 @@
+// cursor number 1: Enumeration (read only operation)
+//2 methods : hasMoreElements() , nextElement()
+//We can use enumeration to get Objects one by one from legacy collection object.
+//We can create enumeration object  by using elements() method of vector class.
+// has only two methods 1.hasMoreElements() 2. nextElement()
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+public class VectorEnumerationDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) 
+	{
+		Vector v = new Vector() ;
+		for(int i = 0 ; i <=10 ;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		Enumeration e = v.elements() ;  // declaring enumeration object
+		while(e.hasMoreElements())
+		{
+			Integer I = (Integer)e.nextElement();
+			if(I % 2 == 0)
+			{
+				System.out.println(I);
+			}
+			else
+			{
+				System.out.println(I +":"+ "Will be removed");
+				v.remove(I) ; //remove method of vector will remove odd numbers
+			}
+		}
+			
+		System.out.println(v);  //[0, 2, 4, 6, 8, 10]
+		
+
+	}
+
+}
