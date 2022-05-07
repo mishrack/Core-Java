@@ -1,0 +1,46 @@
+import java.util.HashMap;
+import java.util.WeakHashMap;
+
+public class WeakHashMapDemo {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args) throws Exception 
+	{
+		// HashMap has more power than GC, even though object is null gc cannot collect it
+		HashMap m = new HashMap();
+		Temp t = new Temp();
+		m.put(t, "Rama") ;
+		System.out.println(m);  // {Temp class toString method:=Rama}
+		t = null ;
+		System.gc();  // calling garbage collector 
+		Thread.sleep(5000);  
+		System.out.println(m); // {Temp class toString method:=Rama}
+		
+		// While in case of WeakHashMap, if key object is null it will be collected by GC 
+		WeakHashMap m1 = new WeakHashMap();
+		Temp t1 = new Temp();
+		m1.put(t1, "Rama") ;
+		System.out.println(m1);  // {Temp class toString method:=Rama}
+		t1 = null ;
+		System.gc();  // calling garbage collector 
+		Thread.sleep(5000);  //  Finalize method is called
+		System.out.println(m1);  // {}
+		
+
+	}
+
+}
+
+class Temp 
+{
+	public String toString()
+	{
+		return "Temp class toString method:" ;
+	}
+	public void finalize()
+	{
+		System.out.println("Finalize method is called");
+	}
+	
+	
+}
