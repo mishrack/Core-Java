@@ -1,0 +1,84 @@
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.RandomAccess;
+
+
+public class ArrayListDemo {
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) {
+		
+		ArrayList  l = new ArrayList() ;
+		ArrayList  l2 = new ArrayList() ;
+		System.out.println(l.size());
+		l.add("A") ;
+		l.add(10) ;
+		l.add(null);
+		l.add(1,"A") ;  // will add A at index 1
+		System.out.println(l);  // [A, 10,null,A]
+		l.remove(2) ;   // will remove element at index 2
+		System.out.println(l); // [A , 10 , A]
+		l.add(2, "M") ; // will be inserted at 2 index
+		l.add("N") ;  // will be added at last index
+		System.out.println(l); // [A, 10 ,M , A ,N]
+		// when we call sysout , by default toString() is called.
+		
+		ArrayList l1 = new ArrayList( ) ;
+		LinkedList l3 = new LinkedList() ;
+		
+		System.out.println(l1 instanceof Serializable);  //true
+		System.out.println(l1 instanceof Cloneable);   // true
+		System.out.println(l1 instanceof RandomAccess); // true
+		System.out.println(l3 instanceof RandomAccess ); // false
+		// Only ArrayList and Vector classes implements RandomAccess interface
+ 		// Every collection class by default implements Serializable and Cloneable interface
+		
+		l2.add(null) ;           // ---------------- null addition is allowed in ArrayList ------------------  
+		l2.add("my") ;
+		l2.add("name is") ; 
+		//  -----------	---------------------------------------------- add() methods demo ----------
+		l2.add("chanchal") ;	  					//----------------- add(object)---------------------------------
+		l2.add(2,"mishra") ;   						//------------------add(index , object) ------------------------
+		l.addAll(1, l2) ;   						// -------------------addAll(index, collection ) -----------------
+		System.out.println(l);   // [A, my, name is, mishra, chanchal, A, M, null, N]
+		
+															// -------------set() and get() methods demo --------------
+		l2.set(2, "Hello") ;  					 //  ---------------------- set(int index , object o) ----------------
+		System.out.println(l2);  // [my, name is, Hello, chanchal]
+		System.out.println(l2.get(3));  			//-------------------- get(int index)  -> chanchal-----------------
+		l.addAll(1, l2) ; 
+		System.out.println(l2.contains("Hello"));   //  op: true-------------------contains() method -----------------
+		System.out.println(l.containsAll(l2));     //  op : true -------------------containsAll() ---------------------
+		
+		System.out.println(l2.isEmpty()); 		// op: false  -------------------isEmpty() method demo ------------------
+		// -------------  remove() method demo ---------------------
+		l2.remove("Hello");    				// --------------------------- remove(Object o)  method demo --------
+		l2.remove(0) ;								// --------------------remove(int index)
+		l.removeAll(l2) ;							// ---------------------removeAll(Collection c)
+		System.out.println(l2);
+		System.out.println(l1);
+		
+		
+		System.out.println(l2.indexOf("chanchal"));   // o/p : 1 ---------------indexOf() method demo ------------
+		l2.add("Hello") ;
+		l2.add("Hello") ;
+		System.out.println(l2.lastIndexOf("Hello"));   // o/p : 3 ----------------lastIndexOf() method demo ----------
+		
+		System.out.println(l2.hashCode());  // o/p: 2061934500  -------------------hashCode() method demo ------------
+		System.out.println(l.hashCode());   // o/p : -1823114225
+		
+		System.out.println(l2.size());     // o/p : 4  ------------------------ size() method demo  ------------------
+		
+		Object[] arr = l2.toArray();  		//----------------------------------- toArray() method demo ---------------
+		for(int i =0 ; i < arr.length; i++)
+		{
+			System.out.print(arr[i] + " ");    // name is chanchal Hello Hello
+		}
+		System.out.println();
+		l2.sort(null);  			// ------------------------------------------sort() method demo -----------------
+		System.out.println(l2);    //  [Hello, Hello, chanchal, name is]		
+		
+	}
+
+}
