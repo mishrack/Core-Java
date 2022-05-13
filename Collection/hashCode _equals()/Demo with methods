@@ -1,0 +1,38 @@
+package interview.problems.hashcodeAndequals;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Map;
+
+// Demo with Overriding the hashCode() and equals() in Employee
+
+public class RunnerDemo2 {
+
+	public static void main(String[] args) {
+
+		// Case 1 : hashCode() and equals() are not overridden yet in Employee class
+		Map<Employee, String> map = new HashMap<>();
+		map.put(new Employee("chanchal", 101), "Employee1");
+		map.put(new Employee("chanchal", 101), "Employee1");
+		map.put(new Employee("chanchal", 101), "Employee1");
+
+		System.out.println(map); // this will print only 1 employee object
+		System.out.println(map.size()); // 1 will be size	
+		
+		HashSet<Employee> set = new HashSet<>() ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		
+		// NOTE : we know Set does not allow duplicate but in this case it will add all elements here 
+		System.out.println(set.size());   // 1 will be the size
+
+		Hashtable<Employee, String> table = new Hashtable<>();
+		table.putAll(map);  // add map which is defined above
+		System.out.println(table.size()); ;  // 1 will be the output
+		
+	}
+
+}
