@@ -1,0 +1,44 @@
+package interview.problems.hashcodeAndequals;
+
+// Demo without Overriding the hashCode() and equals() in Employee
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Map;
+
+// Demo of hashCode() and equals() method in case of custom classes using HashMap, Hashtable, HashaSet
+
+public class RunnerClass {
+
+	public static void main(String[] args) {
+		
+		// Case 1 : hashCode() and equals() are not overridden yet in Employee class
+		Map<Employee, String> map = new HashMap<>() ;
+		map.put(new Employee("chanchal",101), "Employee1") ;
+		map.put(new Employee("chanchal",101), "Employee1") ;
+		map.put(new Employee("chanchal",101), "Employee1") ;
+		map.put(new Employee("chanchal",101), "Employee1") ;
+		
+		System.out.println(map);  // this will print 4 employee objects
+		System.out.println(map.size());  // 4 will be size 
+		
+		//NOTE : so if we do not Override these two methods then concept of Hashing cannot be used properly
+		
+		HashSet<Employee> set = new HashSet<>() ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		set.add(new Employee("chanchal",101)) ;
+		
+		// NOTE : we know Set does not allow duplicate but in this case it will add all elements here 
+		System.out.println(set.size());   // 4 will be the size
+		
+		Hashtable<Employee, String> table = new Hashtable<>();
+		table.putAll(map);  // add map which is defined above
+		System.out.println(table.size()); ;  // 4 will be the output
+		
+		
+	}
+
+}
