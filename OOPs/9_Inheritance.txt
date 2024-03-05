@@ -1,0 +1,87 @@
+	1. It is mechanism by which an object acquires properties and behaviors of parent object.
+	2. Inheritance is also known as IS-A relation(parent-child).
+	3. Biggest advantage is code re-usability.
+	4. extends keyword is used to implement inheritance.
+	5. From parent class we can call methods which are present in parent class only whereas we can call both parent and child class methods using child class object.
+	6. All java APIs are implemented using Inheritance concept.
+	7. Object class acts as root class for java classes, it contains common methods(11 total) which are required by all java classes.
+	8. The most common methods are written inside parent class and child has only specific methods. 
+	9. If any class does not extend any other class then it  directly extends Object class of java by default otherwise it will be a case of multi-level inheritance which is allowed in java.
+
+	
+Example:
+// Inheritance concept
+class P
+{
+	public void m1()
+	{
+		System.out.println("Parent method");
+	}
+}
+class Q extends P
+{
+	// child class has 2 methods
+	public void m2()
+	{
+		System.out.println("Child method");
+	}
+}
+
+class Testx
+{
+	public static void main(String[] args)
+	{
+		P p = new P();
+		p.m1();
+		//trying to call child class method
+		// p.m2(); // this will give CE error : cannot find symbol
+		
+		// child class object 
+		Q q = new Q();
+		q.m1();
+		q.m2();
+		
+		// Parent reference and child class object
+		P p1 = new Q();
+		p1.m1();  // works fine
+		//p1.m2();  // CE error as m2 is not applicable for parent class
+		
+		//child reference and parent object
+		// we cannot use this, will give CE error: incompatible types: P cannot be converted to Q
+		// Q q1 = new P();
+		
+	}
+}
+
+
+Types of Inheritances:
+	1. Single inheritance: One parent and one child class, class A <-- class B extends A
+	2. Multiple inheritance: multiple parents are there. Class A, class B is extended by class C. It is not supported by java classes only in java interfaces. Also known as Diamond access problem
+	3. Multilevel inheritance: multiple level of inheritance is present. Class A  <- class B extends A  <- class C extends B
+	4. Hierarchical inheritance: multiple child classes class B extends A, class C extends A , class D extends A
+	5. Hybrid inheritance: more then one inheritances are used, not supported in java classes but supported in interfaces.
+	6. Cyclic inheritance: Not supported in java ,class A extends A
+
+Multiple inheritance in Interface:
+Since the implementation of abstract methods of the interface is done in child/implementation class, there is no chance of ambiguity.
+Therefore a interface can extends multiple interfaces but not java classes.
+
+Since java 8, in case of default and static methods the implementation class has to specify the exact interface method to be used.
+Interface I1{
+	Default m1(){
+	}
+}
+Interface I2{
+	Default m1(){
+	}
+}
+Class A implements I1, I2{
+	Public void m1I1(){
+		I1.super.m1();
+	}
+	Public void m1I2(){
+		Public void m1(){
+			I2.super.m1();
+		}
+	}
+}
