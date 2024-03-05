@@ -1,0 +1,16 @@
+There are 12 modifiers for members.
+
+	1. Public member: it can be access from anywhere providing the corresponding class is accessible also, recommended modifier for Methods.
+	2. Default member: it can be access within the package even though the corresponding class is public, only package level.
+	3. Private member: it is accessible only in the same class , class level. Recommended modifiers for variable is private.
+	4. Protected member: it is accessible within the package anywhere and outside the package using child classes only.
+	5. A is parent  B is child
+	A a = new A();  // Parent reference and parent object
+	B b = new B(); // child reference and child object 
+	A a = new B(); // parent reference and child object
+	We can use protected members using parent reference or child reference, both are allowed in java.
+	But in case child is in other package, then only child reference can be used.
+	6. From outside the package protected member should be accessed with the help of child classes, using child class reference only and child class object . 
+
+	Scope of Modifiers:
+	Private < Default < Protected < Public
