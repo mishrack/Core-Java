@@ -1,0 +1,40 @@
+The process of grouping  related data members(variables) and corresponding behaviors (methods) into a single unit is known as Encapsulation.
+
+Ex: Student class have members and methods related of students.
+
+-> Every java class is an example of encapsulation.
+
+If any component follow Data Hiding and Abstraction  then it is said to  Encapsulated component.
+Encapsulation = Abstraction + Data Hiding
+
+NOTE: Hiding data behind method is the concept of Encapsulation. 
+
+Advantages:
+	1. Security
+	2. Enhancement will be easy
+	3. Maintainability  of the application
+	4. Modularity is improved.
+
+Disadvantage:
+	1. Code length is increased due to getters and setters methods.
+	2. Run time is increased due to validation therefore performance is affected.
+	
+
+Tightly Encapsulated class:
+When every data member(variable) of a class is defined as private then that class is known as Tightly encapsulated class.
+
+Ex:
+class Student
+{
+	private double marks;  // Data hiding
+	public double getMarks()
+	{
+		return marks ;
+	}
+	public void setMarks(double updatedMarks)
+	{
+		this.marks = updatedMarks;
+	}
+}
+
+NOTE : If the parent class is not tightly encapsulated then no child class can be tightly encapsulated.
