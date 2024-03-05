@@ -1,0 +1,10 @@
+Hiding internal implementation and  just highlighting some essentials information/service is the concept of  Abstraction. Interface in java is an example of abstraction.
+Abstraction is achieved using interface and GUI screens.
+Ex: ATM service(cash deposit and withdraw, account balance check, ATM pin change etc. services are example of abstraction).
+
+Advantages:
+	1. Security
+	2. Enhancement will become very easy without affecting end user.
+	3. Maintainability is improved
+	4. Modularity is improved
+	
