@@ -1,0 +1,21 @@
+Method signature contains method name followed by arguments
+
+Method Declaration : public int m1(int I, float f) 
+Signature in java :  m1(int , float)
+
+Compiler maintains a table for every class called as Method Table.
+
+Class A
+{
+	Public int m1(int x) {}
+	Public double m2(double y) {}
+}
+
+Class A
+Method m1(int)
+Method m2(double)
+Method Table
+
+In method table, java maintains  Method table signature, and if we pass illegal arguments in any existing method ,we will  get CE error saying cannot find symbol.
+
+NOTE: In a class there cannot be 2 methods with same signature even though the return types are different for both methods, whether we are calling or not. We will get compile time error saying : error: method m1(int) is already defined in class class_name.
