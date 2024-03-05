@@ -1,0 +1,27 @@
+Package is a group of related classes and interfaces.
+
+Ex: SQL is a part of java.sql package it also contains all files related items to DBMS.
+-> All IO related items are grouped into java.io package
+
+	1. Naming conflicts can be resolved using packages, for Ex: Date class is present in sql and util both package
+	2. Modularity will be increased
+	3. Maintainability will be increase
+	4. Security will improve
+	5. All java existing class is part of some package.
+	6. Using package is a good coding practice.
+	
+Writing package name : use client internet domain in reverse ex: com.abc;
+
+Compilation of package:
+javac Test.java     // current working directory 
+javac -d . Test.java   // directory as package mentioned , javac will create directory if not present 
+Javac -d E:(path)  Test.java   // any particular directory can be used for compilation
+
+How to run java having package?
+Syntax: java package_name file_name
+java com.chanchal Test  to run the program use fully qualified name.
+
+Important points related package statement.
+	1. In any java file at most one package statement is allowed, CE will be thrown: error: class, interface, or enum expected
+	2. In any java program ,non-commented program statement must begin after package declaration, that we can take import statement and all code after package.
+Package(at most one) -> import(any number) -> class/interface/enum(any number) , order is important
