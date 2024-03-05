@@ -1,0 +1,36 @@
+Definition 1: Any Service Requirement Specification is known as an Interface.
+
+SUN --> Servlet API --> (Tomcat Server, WebLogic Server, Chanchal's Web Server)
+
+SUN has provided specification in Servlet API for Web Based Application using Java.
+Therefore Servlet API is an interface. 
+
+Definition 2: Any contract between client and Service Provider is by default considered as considered as an Interface.
+
+Interface Declaration and Implementation:
+interface <interface_name> {
+    
+    // declare constant fields
+    // declare methods that are abstract by default.
+	// declare default methods
+	// declare static methods
+	}
+
+Note: 
+	1.  Methods present inside interface are by default public and abstract even if they are not declared so, but while implementing interface in implementation class, it is compulsory to declare abstract interface methods as public.
+	2. If the implementing class is not able to implement all abstract methods of interface, it should be declared as abstract class otherwise we should implement all abstract methods of interface.
+	3. If implementation is not provided then CE error is thrown, therefore implementing class has 2 options either declare itself as abstract or implement all methods of the interface.
+	4. Ex:
+	interface A
+	{
+		// services declared
+	}
+	class B implements  A
+	{
+		// Service implementation code
+	}
+
+From Java 8 version, interface can have default and static methods also.
+	• Default methods in interface can be overridden by implementation classes while the static methods cannot be overridden by implementation classes.
+	• The idea of creating the default method is to remove dependency from implementation class to override every abstract method present in the interface.
+	• While the static method can be used to ensure they cannot be changed by implementation classes and hence can be used as security and utility method for implementation classes.. 
