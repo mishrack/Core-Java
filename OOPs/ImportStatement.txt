@@ -1,0 +1,20 @@
+If we do not import class of other package and try to use it, we get compile time error : cannot find symbol
+
+We can use fully qualified name to import - > Readability of the code will be down and length of the code will increase.
+
+To avoid this we use import  statement
+Import statement  directly import classes from given packages and we can use short names.
+
+There are 2 types of import statement:
+
+1.Explicit import : import java.util.ArrayList ;
+2.Implicit import : import javz̄a.util.* ; 
+
+NOTE: It is recommended to use  Explicit import , readability of the code will be increased.
+All IDE always generate Explicit import statements
+
+Some package need  not  to be imported, by default they are available.
+Ex: java.lang package -> String class
+Ex: default package -> current working directory 
+
+Note: Whenever we import a package all the available  classes and interface are by default imported but not the sub-packages classes
