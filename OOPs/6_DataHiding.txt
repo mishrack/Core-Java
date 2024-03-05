@@ -1,0 +1,16 @@
+Hiding data from unauthorized access is known as Data Hiding.
+
+In java it can be implemented using private access modifier.
+Getters and Setters method are used to return and set values of private member 
+
+Major advantage of data hiding is Security.
+
+class DataHiding
+{
+	private double balance;
+	public double getBalance()
+	{
+		//Perform validation
+		return balance;
+	}
+}
