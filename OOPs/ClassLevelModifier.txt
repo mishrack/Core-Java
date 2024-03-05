@@ -1,0 +1,39 @@
+We specify some info to the JVM about class like it is accessible from anywhere or not, child creation is possible or not, object creation is possible or not all is possible using modifiers.
+
+Example:
+	1. If the class is abstract then object creation or instantiation is not possible
+	2. If the class is final, child class creation is not possible.
+	3. strictfp keyword ensures that you will get the same result on every platform if you perform operations in the floating-point variable
+	
+Top level class can be declared as public , default , abstract, final, strictfp
+But for inner classes we have 3 more modifiers apart from above  private, protected and static.
+
+	1. public : can be access from anywhere, within or outside the package. From outside we have to import class.
+	2. default : if any modifier is not given access modifier, class has default modifier access. Therefore we can access default classes within the package only.
+	3. abstract: only applicable for class and method.
+	 
+
+Abstract Methods: 
+If we don't know about implementation i.e. partially implemented  method , we should  declare method as abstract  method
+Ex: public abstract int getNoOfWheel();   // No body or implementation only declaration
+
+	1. Public abstract void m1() { }  // Invalid 
+	2. Public void m1() ;       // Invalid, no abstract keyword
+	3. Public abstract void m1() ; // Valid
+	4. Public void m1() { }   // Valid
+
+NOTE: If a class contains at least one abstract method then the class must be declared as an abstract class. The child classes are responsible for method implementation.
+
+Abstract class:
+	1. If the implementation of the class is not appropriate or partially implemented then class can be declared as abstract,
+   2.     It is not possible create Object of abstract class.
+
+Abstract class Vs Abstract Method: 
+	1. It is compulsory to declare the class as abstract if it has at least one method as abstract, otherwise Compile time  error is thrown.
+	2. Even though class have no abstract method we can declare class as abstract class.
+	 Ex: Adapter classes , HttpServlet
+	3. Child classes can provide implementation for abstract methods.
+	4. For each and every abstract method in abstract class , child class has to provide implementation for each abstract methods.
+	5. If child class wants to implement only some methods then we must define child class also  as abstract, and further implementation needs to be done at next level child.
+	6. We can not create object for abstract class.
+	7. If we want some methods mandatory to be implemented by child classes then we should declare those methods as abstract.
