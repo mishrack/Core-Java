@@ -1,0 +1,120 @@
+If the child is not satisfied with parent class method implementation then child class  is allowed to change the method implementation which is inherited from parent class, this is known as Method Overriding.
+Child class method is called overriding method and parent class method  is called as overridden method.
+
+NOTE:
+	1. In Method Overriding method resolution is taken care at Run time by JVM(Java Virtual Machine).
+	2. At compile time, compiler checks the reference type has the method called, if it is present then it gives green signal.
+	3. Overriding is also known as Run-time polymorphism, Dynamic Binding or Late Binding.
+	4. Method Overloading is simply checked by method name and argument passed while in case of Method overriding it is complex to resolve method as it involves modifiers, return type, throws keyword it is a complex process. There are set of rules for overriding.
+	
+Method Overriding Rules:
+
+	1. Method signatures must be same for overriding method and overridden method.
+	
+	2. Return type must be same till(1.4v) after that co-variant is allowed in return type. That is return type of child class method need not be same as the parent class method(since 1.5V).Ex: For Object class ->Object/String/StringBuffer..etc are allowed, For number class ->Byte/Short/Integer/Long/Float/Double. Therefore a co-variant return type should be same or child of parent class.
+	 Co-variant return type is only applicable for Object types not for primitives.
+	
+	3. Overriding is not applicable for private methods in a class. Based on our requirement we can define the method in child class but that is not overriding.
+	
+	4. Overriding is not applicable for parent class final methods, if we try to override the final method compiler time error will be raised: overridden method is final.
+	And a non-final parent method can be overridden as a final method in child class.
+	
+	5. Abstract method of parent class  can be overridden as non-abstract method in child class and vice-versa. In otherwise case  further implementation will be provided by child class children.
+	
+	6. Synchronized to Non-synchronized methods can be overridden and vice-versa.
+	
+	7. While overriding we can not reduce the scope of access modifier but we can increase scope, no problem in that.
+	Parent class	Child class
+	Public	public
+	Protected	Public/protected
+	Default	Protected/public/default
+	Private	Overriding is not allowed
+	
+	8. Runtime exception and its child classes, Error and its child classes  comes under Un-checked Exception, that is compiler does not check if you handled them or not. Apart from this group of items all exceptions come under Checked exception, that is compiler is going to check whether you have handled them or not. If child class  throws any checked exception then  it is compulsory that its parent should throws the same exception or its parent class otherwise CE is thrown. 
+	There is no such rule is applicable for un-checked exception.
+
+	9. Overriding w.r.t to Var-Args Method Whenever we try to override var-arg method with normal method it  becomes the case of method overloading then method resolution is done by compiler. For var-arg to be overridden we must use var-arg argument in overriding method also.
+	
+	NOTE: var-arg can be override by var-arg only argument method .
+	
+	
+	// override Var-Arg case:
+	class J
+	{
+		public void m1(int... i)
+		{
+			System.out.println("Var-Arg");
+		}
+	}
+	
+	class K extends J
+	{
+		// Whenever we try to overide var-arg method with some other method, it becomes normal method
+		// then it becomes the case of method overloading
+		// then method resolution is done by compiler.
+		public void m1(int i)
+		{
+			System.out.println("Child class method");
+		}
+	}
+	
+	class L extends J
+	{
+		public void m1(int... i)
+		{
+			System.out.println("Case of overriding");
+		}
+	}
+	
+	
+	class Run7
+	{
+		public static void main(String[] args)
+		{
+			J p = new J();
+			p.m1(10);  // Var-args 
+			
+			K c = new K();
+			c.m1(10);  // child-class method
+			
+			J pc = new K();
+			pc.m1(10);   // Var-args
+			
+			L l = new L();
+			l.m1(10);  // case of overriding
+			
+		}
+	}
+	
+	10. Overriding w.r.t. Variables:
+	Overriding concept is applicable only for Methods not variables, variables resolution  is always taken care by compiler based on Reference type at compile time but not by Runtime Object. The variable of parent class is declared again in child class this concept is called as Variable hiding or Shadowing. 
+	Rule is same whether variable is static or non-static, resolution is always done by compiler. 
+	Variable can be static or non-static , variable resolution is done by compiler therefore rule remains the same.
+	//override case w.r.t variables : Shadowing or variable hiding
+	class G
+	{
+		String s = "Parent";
+	}
+	class H extends G
+	{
+		String s = "Child";   // variable hiding or shadowing
+	}
+	
+	class Run8
+	{
+		public static void main(String[] args)
+		{
+			//Parent class and Object
+			G g = new G();
+			System.out.println(g.s); // parent 
+			
+			//Child class and Object
+			H h = new H();
+			System.out.println(h.s);  // child
+			
+			////Parent class and Object
+			G g1 = new H();
+			System.out.println(g1.s);  // Parent, since resolution is done by compiler
+		}
+	}
+	
