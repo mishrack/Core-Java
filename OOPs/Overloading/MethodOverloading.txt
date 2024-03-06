@@ -1,0 +1,30 @@
+Two methods are said to be overloaded when method names are same but have different type of arguments\different number of arguments.
+Ex : m1(int i)
+       m1(double d)
+
+NOTE: 
+	1. Overloading is not supported in C language therefore if argument type changes then we have to code new method for that argument  type.
+	2. C is not OOP programming language.
+	3. In method overloading, method resolution is always taken care by Compiler based on Reference type but not by run-time object .
+	4. That is why method overloading is also known as Compile time Polymorphism or Static Polymorphism or Early binding.
+
+Advantage:
+	1. Code complexity  reduces as we do not need to write different names for methods.
+	
+Case Study: Overloading
+	1. Automatic Promotion: In case the Compiler does not found exact match of method argument in overloaded methods, it will not give compiler time error immediately. First it will promote that data type into next level data type(char -> int) then check again if there is any method present for int argument. If present it will execute the same. This is known as Automatic Promotion. If match is not found CE error will be raised by compiler(no suitable method found for method name).
+	Byte -> short -> int -> long -> float -> double also (char- -> int)
+	
+	2. Exact match gets the highest priority in overloaded methods. When null argument is passed in method call then in overloaded methods having parent child relationship the child class method is called first, if the method is not found at child then parent class method is used. Child class method will have more priority than parent class method.
+	
+	3. When we pass null in overloaded methods and there is no child and parent class method relationship exists between the overloaded methods the compiler will not call any method instead will raise a compile time error: 
+	//  error: reference to m1 is ambiguous
+	// both method m1(StringBuffer) in Overload3 and method m1(String) in Overload3 match
+	
+	4. When an argument passed is acceptable by two or more overloaded methods without promotion or whenever there is conflict between old concept and new concept in java , old concept always win. Var-arg method will always get least priority.
+	
+	5. Whenever we have two methods having method signature as  m1(int i , float f) and m1(float f, int i) then prefect match works fine. Problem arises when argument is passes as  load.m1(10, 10);     // CE: reference to m1 is ambiguous ,  both method m1(int,float) in Overload5 and method m1(float,int) in  Overload5 match, and when it is passed as load.m1(10.5f ,20.5f) ;  //CE error: no suitable method found for m1(float,float). In these scenario Automatic Promotion is not done by compiler.
+	
+	6. In method overloading, compiler used the reference type for method resolution. Ex:
+	Animal a1 = new Monkey();
+run.m1(a1);  //   Animal version here will be called, in overloading new object created has nothing to do , compiler only used type reference for resolution of methods.
